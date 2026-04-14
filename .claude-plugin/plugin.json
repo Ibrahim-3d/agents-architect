@@ -1,0 +1,22 @@
+{
+  "name": "agents-architect",
+  "version": "0.1.0",
+  "description": "Meta-agentic system that builds agentic systems. Given any domain (3D modeling, cardiac PK, legal review, architectural rendering), it researches best practices, scouts MCPs, and scaffolds a complete Claude Code plugin — skills, sub-agents, slash commands, CLAUDE.md context layer, and marketplace entry.",
+  "author": {
+    "name": "Ibrahim",
+    "email": "papsiman5@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "meta",
+    "agent-builder",
+    "skill-creator",
+    "plugin-generator",
+    "context-management",
+    "self-bootstrapping"
+  ],
+  "commands": "./commands/agents-architect/",
+  "agents": "./agents/",
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json"
+}

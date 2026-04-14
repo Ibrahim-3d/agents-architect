@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Node / editors
+node_modules/
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Build outputs
+dist/
+build/
+*.tar.gz
+*.zip
+
+# Session artifacts (if someone clones into ~/.claude/plugins and runs it)
+agents-architect-sessions/
+
+# Secrets
+.env
+.env.local
+*.pem
+*.key

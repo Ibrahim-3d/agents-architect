@@ -1,0 +1,41 @@
+# {{PROJECT_NAME}}
+
+{{ONE_PARAGRAPH_PURPOSE}}
+
+**Stack**: {{STACK}}
+**Entrypoint commands**: {{KEY_COMMANDS}}
+
+## Glossary
+
+- **{{TERM_1}}** — {{DEFINITION_1}}
+- **{{TERM_2}}** — {{DEFINITION_2}}
+- **{{ACRONYM_1}}** — {{EXPANSION_1}}
+
+## Conventions
+
+- **Files**: {{FILE_LAYOUT_RULE}}
+- **Naming**: {{NAMING_RULE}}
+- **Commits**: {{COMMIT_STYLE}}
+- **Tests**: {{TEST_CONVENTION}}
+
+## Red-lines (NEVER)
+
+- Never {{RED_LINE_1}}
+- Never {{RED_LINE_2}}
+- Never {{RED_LINE_3}}
+
+## Workflow
+
+1. {{PHASE_1}} — use `/{{COMMAND_1}}`
+2. {{PHASE_2}} — use `/{{COMMAND_2}}`
+3. {{PHASE_3}} — use `/{{COMMAND_3}}`
+
+## Deeper docs (load on demand)
+
+- @{{REF_DIR}}/context-budget.md
+- @{{REF_DIR}}/{{DOMAIN_REF_1}}.md
+- @{{REF_DIR}}/{{DOMAIN_REF_2}}.md
+
+## Context tier reminders
+
+When context > 50%, prefer delegation. When > 70%, checkpoint to `STATE.md` and `/compact`.

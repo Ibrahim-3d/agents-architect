@@ -1,0 +1,13 @@
+{
+  "name": "{{PLUGIN_NAME}}",
+  "version": "{{VERSION}}",
+  "description": "{{DESCRIPTION}}",
+  "author": {
+    "name": "{{AUTHOR_NAME}}",
+    "email": "{{AUTHOR_EMAIL}}"
+  },
+  "homepage": "{{HOMEPAGE}}",
+  "repository": "{{REPOSITORY}}",
+  "license": "{{LICENSE}}",
+  "keywords": [{{KEYWORDS_CSV}}]
+}

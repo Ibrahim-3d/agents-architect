@@ -1,0 +1,24 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "chmod +x ${CLAUDE_PLUGIN_ROOT}/scripts/install.sh ${CLAUDE_PLUGIN_ROOT}/scripts/validate.py ${CLAUDE_PLUGIN_ROOT}/scripts/scaffold.py 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '[agents-architect] Consider /agents-architect:compact to checkpoint architect-session state before compacting.' >&2"
+          }
+        ]
+      }
+    ]
+  }
+}

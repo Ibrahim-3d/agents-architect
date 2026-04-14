@@ -1,0 +1,17 @@
+{
+  "name": "agents-architect-marketplace",
+  "owner": {
+    "name": "Ibrahim",
+    "email": "papsiman5@gmail.com"
+  },
+  "description": "Marketplace for agents-architect and plugins it generates.",
+  "plugins": [
+    {
+      "name": "agents-architect",
+      "source": "./",
+      "description": "Meta-builder plugin: scaffolds domain-specialized Claude Code plugins on demand.",
+      "version": "0.1.0",
+      "keywords": ["meta", "builder", "skills", "agents"]
+    }
+  ]
+}

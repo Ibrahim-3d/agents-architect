@@ -1,0 +1,17 @@
+{
+  "name": "{{MARKETPLACE_NAME}}",
+  "owner": {
+    "name": "{{OWNER_NAME}}",
+    "email": "{{OWNER_EMAIL}}"
+  },
+  "description": "{{MARKETPLACE_DESCRIPTION}}",
+  "plugins": [
+    {
+      "name": "{{PLUGIN_NAME}}",
+      "source": "./",
+      "description": "{{PLUGIN_DESCRIPTION}}",
+      "version": "{{VERSION}}",
+      "keywords": [{{KEYWORDS_CSV}}]
+    }
+  ]
+}
