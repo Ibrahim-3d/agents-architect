@@ -114,7 +114,7 @@ Every sub-agent has a tight tool allowlist and a single-artifact contract. State
 
 - **Progressive disclosure everywhere.** Skills are metadata + references, not 2000-line monoliths. They load lazily via `@`-imports so context stays cheap.
 - **Orchestrator ↔ specialist pattern.** The slash command is the orchestrator; agents are specialists with narrow contracts. No agent calls another agent without routing through the orchestrator.
-- **Tight tool allowlists.** Every sub-agent declares only the tools it needs. MCP scout gets web. Skill author gets `Read/Write/Edit`. Evaluator gets `Read` + `Bash` (test runners only).
+- **Tight tool allowlists.** Every sub-agent declares only the tools it needs. MCP scout gets web. Skill author gets `Read/Write/Glob`. Evaluator gets `Read`, `Bash`, `Glob`, `Grep`.
 - **Context as a first-class citizen.** Four-tier degradation (PEAK 0–30% / GOOD 30–50% / DEGRADING 50–70% / POOR 70%+), read-depth rules by context window size, STATE.md checkpoints before `/compact`. See [`skills/context-management/SKILL.md`](./skills/context-management/SKILL.md).
 - **Forbidden-key enforcement.** Agents in plugins can't declare `hooks`, `mcpServers`, or `permissionMode` — the packager strips them and the validator fails the build.
 - **Recursive.** To add a new authoring skill (say, for authoring MCP servers), run `/agents-architect:new mcp-server-authoring` inside agents-architect itself.
@@ -150,7 +150,7 @@ python3 ~/.claude/plugins/agents-architect/scripts/validate.py ~/.claude/plugins
 | Command | Purpose |
 |---|---|
 | `/agents-architect:new <domain>` | Full build — research → scout → scaffold → evaluate → package |
-| `/agents-architect:research <domain>` | Domain-research pass only (produces `DOMAIN.md`) |
+| `/agents-architect:research <domain>` | Domain-research pass only (produces `DOMAIN.md` + `MCP_PLAN.md`) |
 | `/agents-architect:skill <name>` | Author a single skill into the current session |
 | `/agents-architect:agent <name>` | Author a single sub-agent |
 | `/agents-architect:command <name>` | Author a single slash command |
@@ -194,12 +194,14 @@ agents-architect/
 
 `scripts/validate.py` checks:
 
-- `plugin.json` + `marketplace.json` parse as JSON with required keys
-- plugin `name` is kebab-case; `version` is SemVer
-- every agent has frontmatter with `description` + `allowed-tools`
+- `.claude-plugin/plugin.json` exists and has required field `name`; warns if `version` is missing
+- components live at plugin root, not inside `.claude-plugin/`
+- every `skills/<name>/SKILL.md` has `name` and `description` frontmatter
+- every agent `.md` has `name` and `description` frontmatter
 - no agent declares forbidden keys (`hooks`, `mcpServers`, `permissionMode`)
-- every `@`-import resolves
-- every SKILL.md has a `description` under the classifier limit
+- every command `.md` has `name` and `description` frontmatter
+- every `@`-import (plugin-root-relative or explicit relative) resolves to an existing file
+- `hooks/hooks.json` and `.mcp.json` (if present) are valid JSON
 
 Runs in CI on every push.
 
