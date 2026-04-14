@@ -21,7 +21,7 @@
 ## TL;DR
 
 ```bash
-claude plugin marketplace add Ibrahim-3d/agents-architect
+claude plugin marketplace add https://github.com/Ibrahim-3d/agents-architect
 claude plugin install agents-architect@agents-architect-marketplace
 ```
 
@@ -31,7 +31,7 @@ Then in Claude Code:
 /agents-architect:new 3d-modeling --tool blender-python --name blender-arch
 ```
 
-You get a fully-validated, installable plugin at `~/.claude/agents-architect-sessions/<ts>-blender-arch/dist/blender-arch-0.1.0.tar.gz`.
+You get a fully-validated, installable plugin under `~/.claude/agents-architect-sessions/<ts>-blender-arch/`.
 
 ---
 
@@ -78,7 +78,6 @@ Given a domain prompt (e.g., *"3D modeling with Blender's Python API"*), it prod
 │   ├── validate.py          # structural lint (runs in CI)
 │   └── install.sh
 ├── CHANGELOG.md · LICENSE · README.md
-└── dist/<domain>-arch-0.1.0.tar.gz
 ```
 
 ---
@@ -103,7 +102,7 @@ research scout     author     author    author     architect
    │       │          │          │          │          │
    └───────┴────┬─────┴──────────┴──────────┴──────────┘
                 ▼
-          plugin-packager → evaluator → dist/*.tar.gz
+          plugin-packager → evaluator
 ```
 
 Every sub-agent has a tight tool allowlist and a single-artifact contract. State is checkpointed to `~/.claude/agents-architect-sessions/<ts>-<plugin-name>/STATE.md` so long sessions survive `/compact`.
@@ -126,14 +125,8 @@ Every sub-agent has a tight tool allowlist and a single-artifact contract. State
 ### From GitHub
 
 ```bash
-claude plugin marketplace add Ibrahim-3d/agents-architect
+claude plugin marketplace add https://github.com/Ibrahim-3d/agents-architect
 claude plugin install agents-architect@agents-architect-marketplace
-```
-
-### From tarball
-
-```bash
-tar -xzf agents-architect-0.1.0.tar.gz -C ~/.claude/plugins/
 ```
 
 ### Development (clone + symlink)
