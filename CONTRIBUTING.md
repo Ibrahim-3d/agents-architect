@@ -7,7 +7,7 @@ Thanks for the interest. agents-architect is a meta-plugin — it builds other p
 1. `python3 scripts/validate.py .` passes with zero errors (warnings about template placeholders are expected).
 2. Every JSON manifest parses.
 3. Every new SKILL.md has both **positive** and **negative** trigger examples.
-4. Every new agent declares `allowed-tools` and avoids `hooks`, `mcpServers`, `permissionMode`.
+4. Every new agent declares `tools` and avoids `hooks`, `mcpServers`, `permissionMode`.
 5. Every new command uses `$ARGUMENTS` and `@`-imports heavy context.
 
 ## Adding a new authoring skill
